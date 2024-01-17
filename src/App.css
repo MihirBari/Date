@@ -95,26 +95,42 @@ body {
 }
 
 .custom-button1 {
-  margin: 10px;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #61dafb;
-  color: white;
-  border: none;
-  transition: transform 0.3s ease;
+  font-weight: 700;
+  color: #000;
+  background-color: #ffffff;
+  padding: 14px 18px;
+  font-size: 18px;
+  margin-top: 25px;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  box-shadow: -3px 4px 11px 0px #888888;
+}
+
+.custom-button1 span {
+  z-index: 1;
+  position: relative;
 }
 
 .custom-button1:hover {
-  transform: translateY(-5px);
+  color: #fff;
 }
 
-.custom-button1:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.custom-button1::before {
+  content: "";
+  background: red;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
 }
 
-.custom-button1:disabled:hover {
-  transform: none;
+.custom-button1:hover::before {
+  width: 100%;
 }
 
 .project {
