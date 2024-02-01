@@ -3,7 +3,6 @@ import { ProjectCard } from "./ProjectCard";
 import projImg1 from "./assets/img/Marine-Drive.jpg";
 import projImg2 from "./assets/img/JUHU.jpg";
 
-
 export const Projects = () => {
     const projects = [
         {
@@ -17,7 +16,6 @@ export const Projects = () => {
             imgUrl: projImg2,
         }
     ];
-
 
     return (
         <section className="project" id="project">

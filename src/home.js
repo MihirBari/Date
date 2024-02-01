@@ -1,17 +1,34 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css';
 import logo from './assets/img/sweet-zahraa-cute-zahraa.gif';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [noButtonPosition, setNoButtonPosition] = useState({ left: 0, top: 0 });
 
-  const handleNoButtonClick = () => {
-    // Move the "No!!!" button to a random position
-    const left = Math.random() * (window.innerWidth - 200); // Adjust 200 based on the button width
-    const top = Math.random() * (window.innerHeight - 50); // Adjust 50 based on the button height
-    setNoButtonPosition({ left, top });
-  };
+  
+  let noAttempts = 0;
+
+
+  function moveNoButton() {
+    const button = document.getElementById("no-button");
+
+    if (noAttempts === 0) {
+ 
+      button.style.transform = `translate(180px, 0)`;
+    } else if (noAttempts === 1) {
+      // Move above the title on the second hover
+      button.style.transform = `translate(0, -280px)`;
+    } else if (noAttempts === 2) {
+      // Run away on the third attempt
+      button.style.transform = `translate(2000px, 0)`;
+      console.log("No more 'No' button. Title and 'Yes' button are still here.");
+    }
+
+    // Increment the attempts counter
+    noAttempts++;
+  }
+
+
     return (
         <div className="App">
         <header className="App-header">
@@ -30,9 +47,10 @@ const Home = () => {
         </button>
         </Link>
         <button
-        style={{ marginLeft: "20px", position: "absolute", ...noButtonPosition }}
+       
         className="custom-button1"
-        onClick={handleNoButtonClick}
+        id="no-button"
+        onMouseOver={moveNoButton}
       >
         <span>No!!!</span>
       </button>
